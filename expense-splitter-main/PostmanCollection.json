@@ -1,0 +1,202 @@
+{
+    "info": {
+        "name": "Expense Splitter API",
+        "description": "API for splitting expenses fairly among people",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "People",
+            "item": [
+                {
+                    "name": "Create Person",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"{{person_name}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/people",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "people"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Person",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/people/{{person_name}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "people", "{{person_name}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "List People",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/people",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "people"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expenses",
+            "item": [
+                {
+                    "name": "Create Expense",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"amount\": {{amount}},\n    \"description\": \"{{description}}\",\n    \"paid_by\": \"{{paid_by}}\",\n    \"shares\": [{\n        \"person\": \"{{share_person}}\",\n        \"type\": \"{{share_type}}\",\n        \"value\": {{share_value}}\n    }]
+}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/expenses",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "expenses"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Expenses",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/expenses",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "expenses"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Expense",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"amount\": {{amount}},\n    \"description\": \"{{description}}\",\n    \"paid_by\": \"{{paid_by}}\",\n    \"shares\": [{\n        \"person\": \"{{share_person}}\",\n        \"type\": \"{{share_type}}\",\n        \"value\": {{share_value}}\n    }]
+}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/expenses/{{expense_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "expenses", "{{expense_id}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Expense",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/expenses/{{expense_id}}",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "expenses", "{{expense_id}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Settlements",
+            "item": [
+                {
+                    "name": "Get Settlements",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/settlements",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "settlements"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Balances",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/balances",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "v1", "balances"]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "localhost:8000",
+            "type": "string"
+        },
+        {
+            "key": "person_name",
+            "value": "John",
+            "type": "string"
+        },
+        {
+            "key": "amount",
+            "value": "100.0",
+            "type": "number"
+        },
+        {
+            "key": "description",
+            "value": "Dinner",
+            "type": "string"
+        },
+        {
+            "key": "paid_by",
+            "value": "John",
+            "type": "string"
+        },
+        {
+            "key": "share_person",
+            "value": "Jane",
+            "type": "string"
+        },
+        {
+            "key": "share_type",
+            "value": "percentage",
+            "type": "string"
+        },
+        {
+            "key": "share_value",
+            "value": "50",
+            "type": "number"
+        },
+        {
+            "key": "expense_id",
+            "value": "1",
+            "type": "number"
+        }
+    ]
+}

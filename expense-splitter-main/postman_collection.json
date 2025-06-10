@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "Expense Splitter API",
+    "description": "API endpoints for Expense Splitter application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "People",
+      "item": [
+        {
+          "name": "Get All People",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/people",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "people"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Expenses",
+      "item": [
+        {
+          "name": "Get All Expenses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/expenses",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "expenses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"description\": \"Dinner at Restaurant\", \"amount\": 1200.0, \"paid_by\": \"Shantanu\", \"shares\": [{\"person\": \"Shantanu\", \"type\": \"percentage\", \"value\": 40}, {\"person\": \"Sanket\", \"type\": \"percentage\", \"value\": 30}, {\"person\": \"Om\", \"type\": \"percentage\", \"value\": 30}]}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/expenses",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "expenses"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get Settlements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/analytics/settlements",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "analytics",
+                "settlements"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Balances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/analytics/balances",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "analytics",
+                "balances"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
